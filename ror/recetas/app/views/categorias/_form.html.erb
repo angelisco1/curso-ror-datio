@@ -1,0 +1,17 @@
+<% if flash[:errors] %>
+  <% flash[:errors].each do |msg| %>
+    <p><%= msg %></p>
+  <% end %>
+<% end %>
+
+<%= form_with model: @categoria do |f| %>
+  <div>
+    <%= f.label :nombre %>
+    <%= f.text_field :nombre %>
+  </div>
+  <div>
+    <%#= f.label :otra_cosa %>
+    <%#= f.text_field :otra_cosa %>
+  </div>
+  <%= f.submit 'Guardar' %>
+<% end %>

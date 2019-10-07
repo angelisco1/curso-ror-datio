@@ -1,0 +1,10 @@
+
+<div>
+  <label for="titulo_tarea">Título</label>
+  <input type="text" id="titulo_tarea" name="titulo" value="<%= @tarea.empty? ? '' : @tarea[:titulo] %>" />
+</div>
+<div>
+  <label for="tarea_hecha">Hecha?</label>
+  <input type="checkbox" id="tarea_hecha" name="hecha" <%= @tarea.empty? ? '' : 'checked' %> />
+</div>
+<button type="submit">Guardar</button>

@@ -1,0 +1,11 @@
+<h1>Categorias</h1>
+<ul>
+  <% @categorias.each do |categoria| %>
+    <li>
+      <%= categoria.nombre %>
+      <%#= link_to 'Editar', edit_categoria_path(categoria, otro: 3) %>
+      <%= link_to 'Editar', edit_categoria_path(categoria) %>
+      <%= button_to 'Eliminar', categoria_path(categoria), { method: :delete } %>
+    </li>
+  <% end %>
+</ul>

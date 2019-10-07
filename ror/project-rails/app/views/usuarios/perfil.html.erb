@@ -1,0 +1,5 @@
+<h2><%#= @usuario.nombre %> <%#= @usuario.apellidos %></h2>
+<h2><%= nombre_completo @usuario %></h2>
+<p><strong>Email:</strong> <%= @usuario.email %></p>
+
+<%= link_to "Editar mis datos", edit_usuario_registration_path %>

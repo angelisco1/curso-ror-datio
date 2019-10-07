@@ -1,0 +1,15 @@
+<% if usuario_signed_in? %>
+  <%= link_to 'Nueva receta', new_receta_path %>
+<% end %>
+<ul>
+  <% @recetas.each do |receta| %>
+    <li>
+      <%= link_to receta.nombre, receta_path(receta) %>
+      <%# TODO: REFACTORIZAR, hace una peticion de usuario por cada receta y tambien hace una peticion de receta... Si ya tenemos la receta, mejor la traemos con el usuario incluido, y la pasamos directamente en lugar de volver a buscarlas %>
+      <% if usuario_signed_in? and is_the_owner?(receta) %>
+        <%= link_to :Editar, edit_receta_path(receta) %>
+        <%= button_to :Eliminar, receta_path(receta), {:method => 'delete'} %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

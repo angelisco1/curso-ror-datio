@@ -1,0 +1,12 @@
+<h2>Listado de ingredientes</h2>
+<%= link_to 'Nuevo ingrediente', new_ingrediente_path %>
+<ul>
+  <% @ingredientes.each do |ingrediente| %>
+    <%# TODO: cambiar el ternario siguiente por un helper %>
+    <li>
+      <%= ingrediente.nombre %> (<%= ingrediente.categoria ? ingrediente.categoria.nombre : '???' %>)
+      <%= link_to :Editar, edit_ingrediente_path(ingrediente) %>
+      <%= button_to :Eliminar, ingrediente_path(ingrediente), {:method => 'delete'} %>
+    </li>
+  <% end %>
+</ul>

@@ -1,0 +1,17 @@
+<% if flash[:errors] %>
+  <% flash[:errors].each do |msg| %>
+    <p><%= msg %></p>
+  <% end %>
+<% end %>
+
+<%= form_with model: @ingrediente do |f| %>
+  <div>
+    <%= f.label :nombre %>
+    <%= f.text_field :nombre %>
+  </div>
+  <div>
+    <%= f.label :categoria %>
+    <%= f.select :categoria_id, @categorias, {include_blank: true} %>
+  </div>
+  <%= f.submit 'Guardar' %>
+<% end %>

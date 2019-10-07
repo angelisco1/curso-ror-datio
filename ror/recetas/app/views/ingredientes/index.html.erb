@@ -1,0 +1,11 @@
+<h1>Ingredientes</h1>
+<ul>
+  <% @ingredientes.each do |ingrediente| %>
+    <li>
+      <%= ingrediente.nombre %> (<%= ingrediente.categoria.nombre %>)
+      <%#= link_to 'Editar', edit_ingrediente_path(ingrediente, otro: 3) %>
+      <%= link_to 'Editar', edit_ingrediente_path(ingrediente) %>
+      <%= button_to 'Eliminar', ingrediente_path(ingrediente), { method: :delete } %>
+    </li>
+  <% end %>
+</ul>

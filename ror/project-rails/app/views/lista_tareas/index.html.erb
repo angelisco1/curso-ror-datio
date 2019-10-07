@@ -1,0 +1,13 @@
+<h1>Mi lista de tareas </h1>
+
+<%= link_to 'Añadir tarea', new_lista_tarea_path %>
+
+<ul>
+  <% @lista_tareas.each do |tarea| %>
+    <li class=<%= tarea[:hecha] ? 'hecha' : '' %>>
+      <%= tarea[:titulo] %>
+      <%= button_to tarea[:hecha] ? 'Deshacer' : 'Hacer', {controller: 'lista_tareas', action: 'update', id: tarea[:id]}, method: :put %>
+      <%= link_to 'Editar', controller: 'lista_tareas', action: 'edit', id: tarea[:id] %>
+    </li>
+  <% end %>
+</ul>

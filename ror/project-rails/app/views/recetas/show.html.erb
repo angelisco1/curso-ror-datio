@@ -1,0 +1,23 @@
+<h2><%= @receta.nombre %> (<%= @receta.puntuacion %>  <%= emoji_puntuacion @receta.puntuacion %>)</h2>
+<%# TODO: poner link en el nombre de usuario para mostrar aquellas recetas que ha creado %>
+<!--
+<p>Subida por <%= @receta.usuario.username %></p>
+-->
+<p>Subida por <%= link_to @receta.usuario.username, recetas_de_usuario_path(@receta.usuario) %></p>
+<%= link_to 'Volver', recetas_path %>
+<div>
+  <h3>Votar la receta:</h3>
+  <%= button_to '+1', votar_receta_path(@receta), method: :put, params: {vota: 1} %>
+  <%= button_to '-1', votar_receta_path(@receta), method: :put, params: {vota: -1} %>
+</div>
+<h3>Ingredientes:</h3>
+<ul>
+  <% @receta.ingredientes_recetas.each do |ing_rec| %>
+    <li>
+      <%= ing_rec.ingrediente.nombre %>: <%= ing_rec.cantidad %> (<%= ing_rec.ingrediente.categoria.nombre %>)
+    </li>
+  <% end %>
+</ul>
+<hr>
+<h3>Descripción:</h3>
+<p><%= simple_format(@receta.descripcion) %></p>

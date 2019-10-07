@@ -1,0 +1,12 @@
+<div>
+  <ul>
+    <li><%= link_to "Inicio", root_path %></li>
+    <% if usuario_signed_in? %>
+      <li><%= link_to current_usuario.username, perfil_path %></li>
+      <li><%= link_to 'Logout', destroy_usuario_session_path, method: 'DELETE' %></li>
+    <% else %>
+      <li><%= link_to 'Login', new_usuario_session_path %></li>
+      <li><%= link_to 'Sign Up', new_usuario_registration_path %></li>
+    <% end %>
+  </ul>
+</div>

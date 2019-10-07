@@ -1,0 +1,13 @@
+<%# Le pasamos el model para que sepa a donde tiene que hacer la peticion y que tipo de peticion %>
+<%= form_with :model => @ingrediente do |f| %>
+  <div>
+    <%= f.label :nombre %>
+    <%= f.text_field :nombre %>
+  </div>
+  <div>
+    <%= f.label :categoria %>
+    <%= f.select :categoria_id, categorias_select_options, {include_blank: true} %>
+  </div>
+  <%= f.submit :Guardar %>
+  <%= link_to :Volver, ingredientes_path %>
+<% end %>
